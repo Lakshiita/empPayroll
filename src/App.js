@@ -50,10 +50,10 @@ const Service = () => {
     <>
       <Navbar />
       
-      <section className="hero-section">
+      {/* <section className="hero-section">
         <p>Welcome to </p>
         <h1>Add Edit Delete </h1>
-      </section>
+      </section> */}
       <Emptable/>
     </>
   );

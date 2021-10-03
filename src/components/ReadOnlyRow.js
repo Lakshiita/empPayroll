@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./empTAB.css";
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
   return (
     <tr>
