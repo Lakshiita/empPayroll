@@ -3,11 +3,11 @@
   padding: 10;
   box-sizing: border-box;
 }
-/* 
-body {
-  background: #105469;
-  font-family: 'Open Sans', sans-serif;
-} */
+.container{
+  margin-left: 22%;
+  margin-top: 10%;
+  width: 70%;
+}
 table {
   background: #1c9ba096;
   border-radius: 0.25em;
@@ -39,7 +39,7 @@ tbody tr:hover {
   
   form {
     display: flex;
-    gap: 5px;
+    gap: 3px;
   }
   
   form td:last-child {
