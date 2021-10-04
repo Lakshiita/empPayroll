@@ -8,7 +8,7 @@ const login1 = () =>{
         <form>
             <label>User id</label>
             <input type='text' />
-            {"\n"}
+            
             <label>Password</label>
             <input type="password"/>
             <input type = "submit" />

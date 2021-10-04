@@ -2,8 +2,9 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
 import Login from './components/login1.js';
-import {Button, Table} from '@material-ui/core';
+// import {Button, Table} from '@material-ui/core';
 import Emptable from './components/Emptable';
+import Data from './components/Schedule.js';
 // function App() {
 //   return (
 //       <div className='App'>
@@ -67,6 +68,7 @@ const Contact = () => {
         <p>Contact us</p>
         {/* <h1>Contact Page</h1> */}
       </section>
+      <Data />
     </>
   );
 };
