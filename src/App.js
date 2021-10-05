@@ -1,9 +1,13 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import { Switch, Route } from "react-router-dom";
+import {BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from './components/login1.js';
-import {Button, Table} from '@material-ui/core';
+//import {Button, Table} from '@material-ui/core';
+import {Provider} from 'react-redux';
+import store,{rrfProps} from './store';
 import Emptable from './components/Emptable';
+import { ReactReduxFirebaseProvider } from "react-redux-firebase";
+
 // function App() {
 //   return (
 //       <div className='App'>
@@ -73,7 +77,10 @@ const Contact = () => {
 
 const App = () => {
   return (
-    <Switch>
+    <Provider store={store}>
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <BrowserRouter>
+      <Switch>
       
       <Route exact path="/">
         <Home />
@@ -90,6 +97,9 @@ const App = () => {
         <Contact />
       </Route>
     </Switch>
+    </BrowserRouter>
+      </ReactReduxFirebaseProvider>
+    </Provider>
   );
 };
 

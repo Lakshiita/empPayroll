@@ -4,9 +4,17 @@ import "./empTAB.css";
 import data from "../mock-data.json";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow"
-
+import { useFirestoreConnect } from "react-redux-firebase";
+import { useSelector } from "react-redux";
 const App = () => {
-  const [contacts, setContacts] = useState(data);
+  const emp= useSelector(state=>state.firestore.ordered.Emp_Details);
+  
+  useFirestoreConnect([
+    {
+      collection:"Emp_Details",
+    },
+  ]);
+  const [contacts, setContacts] = useState(emp);
   const [addFormData, setAddFormData] = useState({
     fullName: "",
     address: "",
@@ -110,7 +118,11 @@ const App = () => {
 
     setContacts(newContacts);
   };
-
+  
+  console.log(emp);
+  
+  if(!emp)
+    return <h1>loading</h1>
   return (
     <div className="container">
       <form onSubmit={handleEditFormSubmit}>
@@ -125,7 +137,7 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
-            {contacts.map((contact) => (
+            {emp.map((contact,index) => (
               <Fragment>
                 {editContactId === contact.id ? (
                   <EditableRow
