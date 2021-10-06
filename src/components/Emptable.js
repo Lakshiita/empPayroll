@@ -4,11 +4,11 @@ import "./empTAB.css";
 import data from "../mock-data.json";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow"
-import { useFirestoreConnect } from "react-redux-firebase";
+import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 const App = () => {
   const emp= useSelector(state=>state.firestore.ordered.Emp_Details);
-  
+  const firestore=useFirestore();
   useFirestoreConnect([
     {
       collection:"Emp_Details",
@@ -16,23 +16,23 @@ const App = () => {
   ]);
   const [contacts, setContacts] = useState(emp);
   const [addFormData, setAddFormData] = useState({
-    fullName: "",
-    address: "",
+    Name: "",
+    Address: "",
     phoneNumber: "",
-    email: "",
+    Email: "",
     dob:"",
-    designation:"",
-    userID:""
+    Designation:"",
+    UserID:""
   });
 
   const [editFormData, setEditFormData] = useState({
-    fullName: "",
-    address: "",
+    Name: "",
+    Address: "",
     phoneNumber: "",
-    email: "",
+    Email: "",
     dob:"",
-    designation:"",
-    userID:""
+    Designation:"",
+    UserID:""
   });
 
   const [editContactId, setEditContactId] = useState(null);
@@ -65,26 +65,28 @@ const App = () => {
     event.preventDefault();
 
     const newContact = {
-      id: nanoid(),
-      fullName: addFormData.fullName,
-      address: addFormData.address,
+      Name: addFormData.Name,
+      Address: addFormData.Address,
       phoneNumber: addFormData.phoneNumber,
-      email: addFormData.email,
+      Email: addFormData.Email,
+      dob:addFormData.dob,
+      UserID:addFormData.UserID,
+      Designation:addFormData.Designation
     };
-
-    const newContacts = [...contacts, newContact];
-    setContacts(newContacts);
+    firestore.collection("Emp_Details").add(newContact);
   };
 
   const handleEditFormSubmit = (event) => {
     event.preventDefault();
 
     const editedContact = {
-      id: editContactId,
-      fullName: editFormData.fullName,
-      address: editFormData.address,
+      Name: editContactId.Name,
+      Address: editFormData.Address,
       phoneNumber: editFormData.phoneNumber,
-      email: editFormData.email,
+      Email: editFormData.Email,
+      dob:editFormData.dob,
+      UserID:editFormData.UserID,
+      Designation:editFormData.Designation
     };
 
     const newContacts = [...contacts];
@@ -102,10 +104,13 @@ const App = () => {
     setEditContactId(contact.id);
 
     const formValues = {
-      fullName: contact.fullName,
-      address: contact.address,
-      phoneNumber: contact.phoneNumber,
-      email: contact.email,
+      Name: editContactId,
+      Address: editFormData.Address,
+      phoneNumber: editFormData.phoneNumber,
+      Email: editFormData.Email,
+      dob:editFormData.dob,
+      UserID:editFormData.UserID,
+      Designation:editFormData.Designation
     };
 
     setEditFormData(formValues);
@@ -141,12 +146,12 @@ const App = () => {
               <th>Phone Number</th>
               <th>Email</th>
               <th>Designation</th>
-              <th>DOB</th>
+              <th>dob</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {emp.map((contact,index) => (
+            {emp.map((contact) => (
               <Fragment>
                 {editContactId === contact.id ? (
                   <EditableRow
@@ -215,7 +220,7 @@ const App = () => {
           type="text"
           name="dob"
           required="required"
-          placeholder="Enter DOB in MON DD,YYYY format..."
+          placeholder="Enter dob in MON DD,YYYY format..."
           onChange={handleAddFormChange}
         />
         <button type="submit">Add</button>
