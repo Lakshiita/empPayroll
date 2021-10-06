@@ -1,8 +1,7 @@
 import React, { useState, Fragment } from "react";
-import { nanoid } from "nanoid";
-import "./empTAB.css";
-import ReadOnlyRow from "./ReadOnlyRow";
-import EditableRow from "./EditableRow"
+import "../empTAB.css";
+import ReadOnlyRow from "../ReadOnlyRow";
+import EditableRow from "../EditableRow"
 import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 const App = () => {
@@ -10,28 +9,18 @@ const App = () => {
   const firestore=useFirestore();
   useFirestoreConnect([
     {
-      collection:"Emp_Details",
+      collection:"Salary",
     },
   ]);
   const [contacts, setContacts] = useState(emp);
   const [addFormData, setAddFormData] = useState({
-    Name: "",
-    Address: "",
-    phoneNumber: "",
-    Email: "",
-    dob:"",
     Designation:"",
-    UserID:""
+    Salary:""
   });
 
   const [editFormData, setEditFormData] = useState({
-    Name: "",
-    Address: "",
-    phoneNumber: "",
-    Email: "",
-    dob:"",
     Designation:"",
-    UserID:""
+    Salary:""
   });
 
   const [editContactId, setEditContactId] = useState(null);
@@ -64,13 +53,8 @@ const App = () => {
     event.preventDefault();
 
     const newContact = {
-      Name: addFormData.Name,
-      Address: addFormData.Address,
-      phoneNumber: addFormData.phoneNumber,
-      Email: addFormData.Email,
-      dob:addFormData.dob,
-      UserID:addFormData.UserID,
-      Designation:addFormData.Designation
+      Designation:addFormData.Designation,
+      Designation:addFormData.Salary
     };
     firestore.collection("Emp_Details").add(newContact);
   };
@@ -79,15 +63,12 @@ const App = () => {
     event.preventDefault();
 
     const editedContact = {
-      Name: editFormData.Name,
-      Address: editFormData.Address,
-      phoneNumber: editFormData.phoneNumber,
-      Email: editFormData.Email,
-      dob:editFormData.dob,
-      UserID:editFormData.UserID,
-      Designation:editFormData.Designation
+      Designation:editFormData.Designation,
+      UserID:editFormData.Salary
     };
+
     firestore.collection("Emp_Details").doc(editContactId).update(editedContact);
+
     setEditContactId(null);
   };
 
@@ -112,26 +93,23 @@ const App = () => {
   };
 
   const handleDeleteClick = (contactId) => {
+
     const docref=firestore.collection("Emp_Details").doc(contactId).delete();
+
+  };
   
   console.log(emp);
   
   if(!emp)
-    return <h1>loading</h1>
+    return <h1>loading..</h1>
   return (
     <div className="container">
       <form onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
             <tr>
-              <th>UserID</th>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Phone Number</th>
-              <th>Email</th>
               <th>Designation</th>
-              <th>dob</th>
-              <th>Actions</th>
+              <th>Salary</th>
             </tr>
           </thead>
           <tbody>
@@ -158,53 +136,11 @@ const App = () => {
 
       <h2>Add a Contact</h2>
       <form onSubmit={handleAddFormSubmit}>
-      <input
-          type="text"
-          name="UserID"
-          required="required"
-          placeholder="Enter UserID..."
-          onChange={handleAddFormChange}
-        />
         <input
           type="text"
-          name="Name"
+          name="Salary"
           required="required"
-          placeholder="Enter a name..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="Address"
-          required="required"
-          placeholder="Enter an address..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="phoneNumber"
-          required="required"
-          placeholder="Enter a phone number..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="email"
-          name="Email"
-          required="required"
-          placeholder="Enter an email..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="Designation"
-          required="required"
-          placeholder="Enter Designation..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="dob"
-          required="required"
-          placeholder="Enter dob in MON DD,YYYY format..."
+          placeholder="Enter Salary..."
           onChange={handleAddFormChange}
         />
         <button type="submit">Add</button>
@@ -212,5 +148,5 @@ const App = () => {
     </div>
   );
 };
-}
+
 export default App;
