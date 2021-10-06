@@ -176,21 +176,21 @@ const App = () => {
       <form onSubmit={handleAddFormSubmit}>
       <input
           type="text"
-          name="userID"
+          name="UserID"
           required="required"
           placeholder="Enter UserID..."
           onChange={handleAddFormChange}
         />
         <input
           type="text"
-          name="fullName"
+          name="Name"
           required="required"
           placeholder="Enter a name..."
           onChange={handleAddFormChange}
         />
         <input
           type="text"
-          name="address"
+          name="Address"
           required="required"
           placeholder="Enter an address..."
           onChange={handleAddFormChange}
@@ -204,14 +204,14 @@ const App = () => {
         />
         <input
           type="email"
-          name="email"
+          name="Email"
           required="required"
           placeholder="Enter an email..."
           onChange={handleAddFormChange}
         />
         <input
           type="text"
-          name="designation"
+          name="Designation"
           required="required"
           placeholder="Enter Designation..."
           onChange={handleAddFormChange}
