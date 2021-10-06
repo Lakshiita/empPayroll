@@ -89,13 +89,13 @@ const App = () => {
       Designation:editFormData.Designation
     };
 
-    const newContacts = [...contacts];
+    //const newContacts = [...contacts];
 
-    const index = contacts.findIndex((contact) => contact.id === editContactId);
+    //const index = contacts.findIndex((contact) => contact.id === editContactId);
 
-    newContacts[index] = editedContact;
-
-    setContacts(newContacts);
+    //newContacts[index] = editedContact;
+    firestore.collection("Emp_Details").doc(editContactId).update(editedContact);
+    //setContacts(newContacts);
     setEditContactId(null);
   };
 
