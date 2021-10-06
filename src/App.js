@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 import store,{rrfProps} from './store';
 import Emptable from './components/Emptable';
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
-
+import EmpSched from './components/Schedule/EmpSchedule.js';
 // function App() {
 //   return (
 //       <div className='App'>
@@ -63,14 +63,15 @@ const Service = () => {
   );
 };
 
-const Contact = () => {
+const Schedule = () => {
   return (
     <>
       <Navbar />
-      <section className="hero-section">
+      {/* <section className="hero-section">
         <p>Contact us</p>
-        {/* <h1>Contact Page</h1> */}
-      </section>
+        <h1>Contact Page</h1>
+      </section> */}
+      <EmpSched />
     </>
   );
 };
@@ -93,8 +94,8 @@ const App = () => {
         <Service />
       </Route>
 
-      <Route path="/contact">
-        <Contact />
+      <Route path="/Schedule">
+        <Schedule />
       </Route>
     </Switch>
     </BrowserRouter>
