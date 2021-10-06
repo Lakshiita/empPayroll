@@ -130,7 +130,7 @@ const App = () => {
               <th>Phone Number</th>
               <th>Email</th>
               <th>Designation</th>
-              <th>dob</th>
+              <th>DOB</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -156,7 +156,7 @@ const App = () => {
         </table>
       </form>
 
-      <h2>Add a Contact</h2>
+      <h2>Add a Emp</h2>
       <form onSubmit={handleAddFormSubmit}>
       <input
           type="text"

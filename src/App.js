@@ -56,7 +56,7 @@ const Salary = () => {
     <>
       <Navbar />
       <section className="hero-section">
-        <Salary1/>
+        <Salary/>
       </section>
     </>
   );
@@ -85,7 +85,7 @@ const App = () => {
       </Route>
 
       <Route path="/salary">
-        <Salary />
+        <Salary1/>
       </Route>
 
     </Switch>

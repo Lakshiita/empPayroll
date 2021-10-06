@@ -1,10 +1,10 @@
 import React from "react";
-import "./empTAB.css";
+import "../empTAB.css";
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
   return (
     <tr>
       <td>{contact.Designation}</td>
-      <td>{contact.Salary}</td>
+      <td>{contact.salary}</td>
       <td>
         <button
           type="button"

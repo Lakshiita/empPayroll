@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import "../empTAB.css";
-import ReadOnlyRow from "../ReadOnlyRow";
-import EditableRow from "../EditableRow"
+import ReadOnlyRow from "./ReadOnlyRow"
+import EditableRow from "./EditableRow"
 import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 const App = () => {
@@ -15,12 +15,12 @@ const App = () => {
   const [contacts, setContacts] = useState(emp);
   const [addFormData, setAddFormData] = useState({
     Designation:"",
-    Salary:""
+    salary:""
   });
 
   const [editFormData, setEditFormData] = useState({
     Designation:"",
-    Salary:""
+    salary:""
   });
 
   const [editContactId, setEditContactId] = useState(null);
@@ -56,7 +56,7 @@ const App = () => {
       Designation:addFormData.Designation,
       Designation:addFormData.Salary
     };
-    firestore.collection("Emp_Details").add(newContact);
+    firestore.collection("Salary").add(newContact);
   };
 
   const handleEditFormSubmit = (event) => {
@@ -64,10 +64,10 @@ const App = () => {
 
     const editedContact = {
       Designation:editFormData.Designation,
-      UserID:editFormData.Salary
+      UserID:editFormData.salary
     };
 
-    firestore.collection("Emp_Details").doc(editContactId).update(editedContact);
+    firestore.collection("Salary").doc(editContactId).update(editedContact);
 
     setEditContactId(null);
   };
@@ -77,13 +77,9 @@ const App = () => {
     setEditContactId(contact.id);
     let id=contact.id;
     const formValues = {
-      Name: editFormData.Name,
-      Address: editFormData.Address,
-      phoneNumber: editFormData.phoneNumber,
-      Email: editFormData.Email,
-      dob:editFormData.dob,
-      UserID:editFormData.UserID,
-      Designation:editFormData.Designation
+      
+      Designation:editFormData.Designation,
+      UserID:editFormData.salary,
     };
     setEditFormData(formValues);
   };
@@ -94,14 +90,14 @@ const App = () => {
 
   const handleDeleteClick = (contactId) => {
 
-    const docref=firestore.collection("Emp_Details").doc(contactId).delete();
+    const docref=firestore.collection("Salary").doc(contactId).delete();
 
   };
   
   console.log(emp);
   
   if(!emp)
-    return <h1>loading..</h1>
+    return <h3>loading..</h3>
   return (
     <div className="container">
       <form onSubmit={handleEditFormSubmit}>
@@ -110,6 +106,7 @@ const App = () => {
             <tr>
               <th>Designation</th>
               <th>Salary</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -136,9 +133,16 @@ const App = () => {
 
       <h2>Add a Contact</h2>
       <form onSubmit={handleAddFormSubmit}>
+      <input
+          type="text"
+          name="Designation"
+          required="required"
+          placeholder="Enter Designation..."
+          onChange={handleAddFormChange}
+        />
         <input
           type="text"
-          name="Salary"
+          name="salary"
           required="required"
           placeholder="Enter Salary..."
           onChange={handleAddFormChange}

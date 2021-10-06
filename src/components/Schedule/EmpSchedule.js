@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from "react";
-import { nanoid } from "nanoid";
 import "./empTAB.css";
 import data from "../../mock-data.json";
 import ReadOnlyRow from "./ReadOnlyRow";
