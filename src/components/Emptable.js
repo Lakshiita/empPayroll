@@ -112,9 +112,6 @@ const App = () => {
       UserID:editFormData.UserID,
       Designation:editFormData.Designation
     };
-    
-    
-    
     setEditFormData(formValues);
   };
 
@@ -123,13 +120,13 @@ const App = () => {
   };
 
   const handleDeleteClick = (contactId) => {
-    const newContacts = [...contacts];
+    //const newContacts = [...contacts];
+    const docref=firestore.collection("Emp_Details").doc(contactId).delete();
+   // const index = contacts.findIndex((contact) => contact.id === contactId);
 
-    const index = contacts.findIndex((contact) => contact.id === contactId);
+    //newContacts.splice(index, 1);
 
-    newContacts.splice(index, 1);
-
-    setContacts(newContacts);
+    //setContacts(newContacts);
   };
   
   console.log(emp);
