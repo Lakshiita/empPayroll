@@ -8,6 +8,16 @@ const EditableRow = ({
   return (
     <tr>
       <td>
+      <input
+          type="text"
+          required="required"
+          placeholder="Enter a User ID..."
+          name="userID"
+          value={editFormData.fullName}
+          onChange={handleEditFormChange}
+        ></input>
+        </td>
+        <td>
         <input
           type="text"
           required="required"
@@ -43,6 +53,26 @@ const EditableRow = ({
           required="required"
           placeholder="Enter an email..."
           name="email"
+          value={editFormData.email}
+          onChange={handleEditFormChange}
+        ></input>
+      </td>
+      <td>
+        <input
+          type="text"
+          required="required"
+          placeholder="Enter desgination..."
+          name="designation"
+          value={editFormData.email}
+          onChange={handleEditFormChange}
+        ></input>
+      </td>
+      <td>
+        <input
+          type="text"
+          required="required"
+          placeholder="Enter DOB..."
+          name="dob"
           value={editFormData.email}
           onChange={handleEditFormChange}
         ></input>

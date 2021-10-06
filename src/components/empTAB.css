@@ -44,6 +44,7 @@ tbody tr:hover {
   
   form td:last-child {
     display: flex;
+    white-space:pre;
     justify-content: space-evenly;
   }
   

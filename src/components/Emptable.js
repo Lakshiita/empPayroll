@@ -20,6 +20,9 @@ const App = () => {
     address: "",
     phoneNumber: "",
     email: "",
+    dob:"",
+    designation:"",
+    userID:""
   });
 
   const [editFormData, setEditFormData] = useState({
@@ -27,6 +30,9 @@ const App = () => {
     address: "",
     phoneNumber: "",
     email: "",
+    dob:"",
+    designation:"",
+    userID:""
   });
 
   const [editContactId, setEditContactId] = useState(null);
@@ -129,10 +135,13 @@ const App = () => {
         <table>
           <thead>
             <tr>
+              <th>UserID</th>
               <th>Name</th>
               <th>Address</th>
               <th>Phone Number</th>
               <th>Email</th>
+              <th>Designation</th>
+              <th>DOB</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -160,6 +169,13 @@ const App = () => {
 
       <h2>Add a Contact</h2>
       <form onSubmit={handleAddFormSubmit}>
+      <input
+          type="text"
+          name="userID"
+          required="required"
+          placeholder="Enter UserID..."
+          onChange={handleAddFormChange}
+        />
         <input
           type="text"
           name="fullName"
@@ -171,7 +187,7 @@ const App = () => {
           type="text"
           name="address"
           required="required"
-          placeholder="Enter an addres..."
+          placeholder="Enter an address..."
           onChange={handleAddFormChange}
         />
         <input
@@ -186,6 +202,20 @@ const App = () => {
           name="email"
           required="required"
           placeholder="Enter an email..."
+          onChange={handleAddFormChange}
+        />
+        <input
+          type="text"
+          name="designation"
+          required="required"
+          placeholder="Enter Designation..."
+          onChange={handleAddFormChange}
+        />
+        <input
+          type="text"
+          name="dob"
+          required="required"
+          placeholder="Enter DOB in MON DD,YYYY format..."
           onChange={handleAddFormChange}
         />
         <button type="submit">Add</button>

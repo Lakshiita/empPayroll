@@ -1,7 +1,8 @@
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import 'firebase/compat/firestore'; // <- needed if using firestore
+import 'firebase/compat/firestore'; 
+// <- needed if using firestore
 // import 'firebase/functions' // <- needed if using httpsCallable
 import { createStore, combineReducers, compose } from 'redux'
 import {

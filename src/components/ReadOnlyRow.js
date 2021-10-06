@@ -3,10 +3,13 @@ import "./empTAB.css";
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
   return (
     <tr>
+      <td>{contact.userID}</td>
       <td>{contact.Name}</td>
       <td>{contact.Address}</td>
-      <td>{contact.Designation}</td>
+      <td>{contact.phoneNumber}</td>
       <td>{contact.Email}</td>
+      <td>{contact.designation}</td>
+      <td>{contact.dob}</td>
       <td>
         <button
           type="button"
