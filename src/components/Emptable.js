@@ -80,7 +80,7 @@ const App = () => {
     event.preventDefault();
 
     const editedContact = {
-      Name: editContactId.Name,
+      Name: editFormData.Name,
       Address: editFormData.Address,
       phoneNumber: editFormData.phoneNumber,
       Email: editFormData.Email,
@@ -102,9 +102,9 @@ const App = () => {
   const handleEditClick = (event, contact) => {
     event.preventDefault();
     setEditContactId(contact.id);
-
+    let id=contact.id;
     const formValues = {
-      Name: editContactId,
+      Name: editFormData.Name,
       Address: editFormData.Address,
       phoneNumber: editFormData.phoneNumber,
       Email: editFormData.Email,
@@ -112,7 +112,9 @@ const App = () => {
       UserID:editFormData.UserID,
       Designation:editFormData.Designation
     };
-
+    
+    
+    
     setEditFormData(formValues);
   };
 

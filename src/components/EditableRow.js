@@ -12,7 +12,7 @@ const EditableRow = ({
           type="text"
           required="required"
           placeholder="Enter a User ID..."
-          name="userID"
+          name="UserID"
           value={editFormData.UserID}
           onChange={handleEditFormChange}
         ></input>
@@ -22,7 +22,7 @@ const EditableRow = ({
           type="text"
           required="required"
           placeholder="Enter a name..."
-          name="fullName"
+          name="Name"
           value={editFormData.Name}
           onChange={handleEditFormChange}
         ></input>
@@ -32,7 +32,7 @@ const EditableRow = ({
           type="text"
           required="required"
           placeholder="Enter an address..."
-          name="address"
+          name="Address"
           value={editFormData.Address}
           onChange={handleEditFormChange}
         ></input>
@@ -52,7 +52,7 @@ const EditableRow = ({
           type="email"
           required="required"
           placeholder="Enter an email..."
-          name="email"
+          name="Email"
           value={editFormData.Email}
           onChange={handleEditFormChange}
         ></input>
@@ -62,7 +62,7 @@ const EditableRow = ({
           type="text"
           required="required"
           placeholder="Enter desgination..."
-          name="designation"
+          name="Designation"
           value={editFormData.Designation}
           onChange={handleEditFormChange}
         ></input>
