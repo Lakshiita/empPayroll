@@ -23,7 +23,7 @@ const EditableRow = ({
           required="required"
           placeholder="Enter Salary..."
           name="Salary"
-          value={editFormData.dob}
+          value={editFormData.Salary}
           onChange={handleEditFormChange}
         ></input>
       </td>

@@ -5,7 +5,7 @@ import EditableRow from "./EditableRow"
 import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 const App = () => {
-  const emp= useSelector(state=>state.firestore.ordered.Emp_Details);
+  const emp= useSelector(state=>state.firestore.ordered.Salary);
   const firestore=useFirestore();
   useFirestoreConnect([
     {
@@ -54,7 +54,7 @@ const App = () => {
 
     const newContact = {
       Designation:addFormData.Designation,
-      Designation:addFormData.Salary
+      salary:addFormData.salary
     };
     firestore.collection("Salary").add(newContact);
   };
