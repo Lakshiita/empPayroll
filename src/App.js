@@ -4,10 +4,11 @@ import {BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from './components/login1.js';
 import {Provider} from 'react-redux';
 import store,{rrfProps} from './store';
-import Emptable from './components/Emptable';
+import Emptable1 from './components/EmpEditDelete/Emptable';
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
-import NavbarEmp from "./components/NavbarEmp";
+//import NavbarEmp from "./components/NavbarEmp";
 import Salary1 from "./components/Salary/adminSalary";
+import EmpSch from "./components/Schedule/EmpSchedule";
 const Home = () => {
   return (
     <>
@@ -26,7 +27,7 @@ const About = () => {
     <>
       <Navbar />
       <section className="hero-section">
-      <Login/>
+      <Emptable1 />
       </section>
     </>
   );
@@ -36,17 +37,19 @@ const Service = () => {
   return (
     <>
       <Navbar />
-      <Emptable/>
+      <section class="hero-section">
+      <Emptable1 />
+      </section>
     </>
   );
 };
 
-const Contact = () => {
+const Schedule = () => {
   return (
     <>
       <Navbar />
       <section className="hero-section">
-        <NavbarEmp/>
+        <EmpSch />
       </section>
     </>
   );
@@ -56,7 +59,7 @@ const Salary = () => {
     <>
       <Navbar />
       <section className="hero-section">
-        <Salary/>
+        <Salary1/>
       </section>
     </>
   );
@@ -80,12 +83,12 @@ const App = () => {
         <Service />
       </Route>
 
-      <Route path="/contact">
-        <Contact />
+      <Route path="/schedule">
+        <Schedule />
       </Route>
 
       <Route path="/salary">
-        <Salary1/>
+        <Salary/>
       </Route>
 
     </Switch>
