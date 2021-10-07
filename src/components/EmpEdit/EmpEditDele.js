@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import "./empTAB.css";
+import "../empTAB.css";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow"
 import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
@@ -170,7 +170,7 @@ const App = () => {
       </form>
 
       <h2>Add Employee</h2>
-      <form onSubmit={handleAddFormSubmit}>
+      <form className="form-editEmp" onSubmit={handleAddFormSubmit}>
       <input
           type="text"
           name="UserID"
@@ -198,7 +198,7 @@ const App = () => {
           required="required"
           placeholder="Enter Email"
           onChange={handleAddFormChange}
-        />
+        /><br/>
         <input
           type="text"
           name="Name"

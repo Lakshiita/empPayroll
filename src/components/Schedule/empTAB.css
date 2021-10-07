@@ -1,12 +1,12 @@
 *, *:before, *:after {
-  margin: 10;
-  padding: 10;
+  margin: 5;
+  padding: 5;
   box-sizing: border-box;
 }
 .container{
-  margin-left: 22%;
-  margin-top: 10%;
-  width: 70%;
+  margin-left: 4%;
+  margin-top: 2%;
+  width: 80%;
 }
 table {
   background: #1c9ba096;
@@ -28,6 +28,7 @@ td {
   color: #fff;
   font-weight: 400;
   padding: 0.65em 1em;
+  width: auto;
 }
 tbody tr {
   transition: background 0.25s ease;
@@ -52,11 +53,26 @@ tbody tr:hover {
     font-size: 15px;
   }
   button {
-    line-height: 1;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    color: #fff;
-    padding: 8px;
-    background-color: rgba(15, 123, 150, 0.925);
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 70px;
+  height: 40px;
+	font-size: 15px;
+	padding: 5px;
+	margin: 10px 10px;
+  }
+  button:hover{
+    background: #083335c9;
+  }
+  .form-box input{
+      margin: 10px 0px;
+      border:1px solid rgba(12, 119, 105, 0.548);
+      padding: 8px;
+      border-radius: 5px;
+      width: 70px;
+      height: 20px;
+      font-size: 15px;
+      font-family: poppins;
   }

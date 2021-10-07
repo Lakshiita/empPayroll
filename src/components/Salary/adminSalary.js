@@ -100,7 +100,7 @@ const App = () => {
     return <h3>loading..</h3>
   return (
     <div className="container">
-      <form onSubmit={handleEditFormSubmit}>
+      <form className="form-box" onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
             <tr>
@@ -132,7 +132,7 @@ const App = () => {
       </form>
 
       <h2>Add a Contact</h2>
-      <form onSubmit={handleAddFormSubmit}>
+      <form className="form-editEmp" onSubmit={handleAddFormSubmit}>
       <input
           type="text"
           name="Designation"

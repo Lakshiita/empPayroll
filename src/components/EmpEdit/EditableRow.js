@@ -11,7 +11,7 @@ const EditableRow = ({
       <input
           type="text"
           required="required"
-          placeholder="Enter a User ID..."
+          placeholder=""
           name="UserID"
           value={editFormData.UserID}
           onChange={handleEditFormChange}
@@ -21,7 +21,7 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter Address"
+          placeholder=""
           name="Address"
           value={editFormData.Name}
           onChange={handleEditFormChange}
@@ -31,7 +31,7 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter Designation"
+          placeholder=""
           name="Designation"
           value={editFormData.Name}
           onChange={handleEditFormChange}
@@ -41,7 +41,7 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter Email"
+          placeholder=""
           name="Email"
           value={editFormData.Address}
           onChange={handleEditFormChange}
@@ -51,7 +51,7 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter Name"
+          placeholder=""
           name="Name"
           value={editFormData.Address}
           onChange={handleEditFormChange}
@@ -61,7 +61,7 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter dob"
+          placeholder=""
           name="dob"
           value={editFormData.phoneNumber}
           onChange={handleEditFormChange}
@@ -71,7 +71,7 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter Phone Number"
+          placeholder=""
           name="phoneNumber"
           value={editFormData.phoneNumber}
           onChange={handleEditFormChange}

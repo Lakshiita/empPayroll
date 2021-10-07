@@ -1,12 +1,12 @@
 *, *:before, *:after {
-  margin: 10;
-  padding: 10;
+  margin: 5;
+  padding: 5;
   box-sizing: border-box;
 }
 .container{
-  margin-left: 22%;
-  margin-top: 10%;
-  width: 70%;
+  margin-left: 4%;
+  margin-top: 2%;
+  width: 90%;
 }
 table {
   background: #1c9ba096;
@@ -28,18 +28,20 @@ td {
   color: #fff;
   font-weight: 400;
   padding: 0.65em 1em;
+  width: auto;
+  border:0.5px solid blanchedalmond;
 }
 tbody tr {
-  transition: background 0.25s ease;
+  transition: background 0.22s ease;
 }
 tbody tr:hover {
   background: #27a8b1;
 }
-
   
   form {
     display: flex;
-    gap: 3px;
+    gap: 9px;
+    background-color: rgba(255, 254, 254, 0.068);
   }
   
   form td:last-child {
@@ -52,11 +54,44 @@ tbody tr:hover {
     font-size: 15px;
   }
   button {
-    line-height: 1;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    color: #fff;
-    padding: 8px;
-    background-color: rgba(15, 123, 150, 0.925);
+	color: #fff;
+  background: #177277c9;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100%;
+  height: 100%;
+	font-size: 15px;
+	padding: 5px;
+	margin: 10px 10px;
   }
+  button:hover{
+    background: #364201c9;
+  }
+  /* .form-box input{
+      margin: 10px 0px;
+      border:1px solid rgba(0, 165, 157, 0.548);
+      padding: 8px;
+      border-radius: 5px;
+      width: 100%;
+      background-color: rgba(255, 254, 254, 0.068);
+      height: 100%;
+      font-size: 15px;
+      font-family: poppins;
+      
+  } */
+  
+  .form-editEmp input{
+    white-space: pre-wrap;
+    margin: 7px 5px;
+    border:1px solid  rgba(0, 165, 157, 0.548);
+    padding: 8px;
+    background-color: rgba(255, 254, 254, 0.068);
+    border-radius: 5px;
+    width: 70%;
+    height: 30%;
+    margin-left: 5px;
+    font-size: 15px;
+    font-family: poppins;
+    
+}
