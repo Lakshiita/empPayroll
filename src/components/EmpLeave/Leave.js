@@ -5,31 +5,25 @@ import EditableRow from "./EditableRow"
 import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 const App = () => {
-  const emp= useSelector(state=>state.firestore.ordered.Emp_Details);
+  const emp= useSelector(state=>state.firestore.ordered.Leaves);
   const firestore=useFirestore();
   useFirestoreConnect([
     {
-      collection:"Emp_Details",
+      collection:"Leaves",
     },
   ]);
   const [contacts, setContacts] = useState(emp);
   const [addFormData, setAddFormData] = useState({
-    Name: "",
-    Address: "",
-    phoneNumber: "",
-    Email: "",
-    dob:"",
-    Designation:"",
+    duration: "",
+    from: "",
+    status: "",
     UserID:""
   });
 
   const [editFormData, setEditFormData] = useState({
-    Name: "",
-    Address: "",
-    phoneNumber: "",
-    Email: "",
-    dob:"",
-    Designation:"",
+    duration: "",
+    from: "",
+    status: "",
     UserID:""
   });
 
@@ -63,30 +57,31 @@ const App = () => {
     event.preventDefault();
 
     const newContact = {
-      Name: addFormData.Name,
-      Address: addFormData.Address,
-      phoneNumber: addFormData.phoneNumber,
-      Email: addFormData.Email,
-      dob:addFormData.dob,
-      UserID:addFormData.UserID,
-      Designation:addFormData.Designation
+        duration: addFormData.duration,
+        from: addFormData.from,
+        status: addFormData.status,
+        UserID: addFormData.UserID
     };
-    firestore.collection("Emp_Details").add(newContact);
+    firestore.collection("Leaves").add(newContact);
   };
 
   const handleEditFormSubmit = (event) => {
     event.preventDefault();
 
     const editedContact = {
-      Name: editFormData.Name,
-      Address: editFormData.Address,
-      phoneNumber: editFormData.phoneNumber,
-      Email: editFormData.Email,
-      dob:editFormData.dob,
-      UserID:editFormData.UserID,
-      Designation:editFormData.Designation
+        duration: editFormData.duration,
+        from: editFormData.from,
+        status: editFormData.status,
+        UserID: editFormData.UserID
     };
-    firestore.collection("Emp_Details").doc(editContactId).update(editedContact);
+
+    //const newContacts = [...contacts];
+
+    //const index = contacts.findIndex((contact) => contact.id === editContactId);
+
+    //newContacts[index] = editedContact;
+    firestore.collection("Leaves").doc(editContactId).update(editedContact);
+    //setContacts(newContacts);
     setEditContactId(null);
   };
 
@@ -95,13 +90,10 @@ const App = () => {
     setEditContactId(contact.id);
     let id=contact.id;
     const formValues = {
-      Name: editFormData.Name,
-      Address: editFormData.Address,
-      phoneNumber: editFormData.phoneNumber,
-      Email: editFormData.Email,
-      dob:editFormData.dob,
-      UserID:editFormData.UserID,
-      Designation:editFormData.Designation
+        duration: editFormData.duration,
+        from: editFormData.from,
+        status: editFormData.status,
+        UserID: editFormData.UserID
     };
     setEditFormData(formValues);
   };
@@ -111,7 +103,14 @@ const App = () => {
   };
 
   const handleDeleteClick = (contactId) => {
-    const docref=firestore.collection("Emp_Details").doc(contactId).delete();
+    //const newContacts = [...contacts];
+    const docref=firestore.collection("Leaves").doc(contactId).delete();
+   // const index = contacts.findIndex((contact) => contact.id === contactId);
+
+    //newContacts.splice(index, 1);
+
+    //setContacts(newContacts);
+  };
   
   console.log(emp);
   
@@ -123,14 +122,11 @@ const App = () => {
         <table>
           <thead>
             <tr>
-              <th>UserID</th>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Phone Number</th>
-              <th>Email</th>
-              <th>Designation</th>
-              <th>DOB</th>
-              <th>Actions</th>
+              <th>UserId</th>
+              <th>Duration</th>
+              <th>Status</th>
+              <th>From</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -155,7 +151,7 @@ const App = () => {
         </table>
       </form>
 
-      <h2>Add a Emp</h2>
+      <h2>Schedule a Leave</h2>
       <form onSubmit={handleAddFormSubmit}>
       <input
           type="text"
@@ -166,44 +162,23 @@ const App = () => {
         />
         <input
           type="text"
-          name="Name"
+          name="duration"
           required="required"
-          placeholder="Enter a name..."
+          placeholder="Enter duration"
           onChange={handleAddFormChange}
         />
         <input
           type="text"
-          name="Address"
+          name="from"
           required="required"
-          placeholder="Enter an address..."
+          placeholder="Enter from date"
           onChange={handleAddFormChange}
         />
         <input
           type="text"
-          name="phoneNumber"
+          name="status"
           required="required"
-          placeholder="Enter a phone number..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="email"
-          name="Email"
-          required="required"
-          placeholder="Enter an email..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="Designation"
-          required="required"
-          placeholder="Enter Designation..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="dob"
-          required="required"
-          placeholder="Enter dob in MON DD,YYYY format..."
+          placeholder="Enter Status..."
           onChange={handleAddFormChange}
         />
         <button type="submit">Add</button>
@@ -211,5 +186,5 @@ const App = () => {
     </div>
   );
 };
-}
+
 export default App;

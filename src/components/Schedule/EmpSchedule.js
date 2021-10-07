@@ -132,6 +132,7 @@ const App = () => {
               <th>Work Hours</th>
               <th>Status</th>
               <th>Date</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -174,7 +175,7 @@ const App = () => {
         />
         <input
           type="text"
-          name="work_hr"
+          name="work_hrs"
           required="required"
           placeholder="Enter Working hours.."
           onChange={handleAddFormChange}

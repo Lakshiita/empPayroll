@@ -5,7 +5,7 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
     <tr>
       <td>{contact.UserID}</td>
       <td>{contact.sid}</td>
-      <td>{contact.work_hr}</td>
+      <td>{contact.work_hrs}</td>
       <td>{contact.status}</td>
       <td>{contact.date}</td>
       <td>

@@ -32,7 +32,7 @@ const EditableRow = ({
           type="text"
           required="required"
           placeholder="Enter Working hour..."
-          name="work_hr"
+          name="work_hrs"
           value={editFormData.Address}
           onChange={handleEditFormChange}
         ></input>

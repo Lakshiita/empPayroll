@@ -21,8 +21,18 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter a name..."
-          name="Name"
+          placeholder="Enter Address"
+          name="Address"
+          value={editFormData.Name}
+          onChange={handleEditFormChange}
+        ></input>
+      </td>
+        <td>
+        <input
+          type="text"
+          required="required"
+          placeholder="Enter Designation"
+          name="Designation"
           value={editFormData.Name}
           onChange={handleEditFormChange}
         ></input>
@@ -31,8 +41,8 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter an address..."
-          name="Address"
+          placeholder="Enter Email"
+          name="Email"
           value={editFormData.Address}
           onChange={handleEditFormChange}
         ></input>
@@ -41,39 +51,29 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter a phone number..."
-          name="phoneNumber"
+          placeholder="Enter Name"
+          name="Name"
+          value={editFormData.Address}
+          onChange={handleEditFormChange}
+        ></input>
+      </td>
+      <td>
+        <input
+          type="text"
+          required="required"
+          placeholder="Enter dob"
+          name="dob"
           value={editFormData.phoneNumber}
           onChange={handleEditFormChange}
         ></input>
       </td>
       <td>
         <input
-          type="email"
-          required="required"
-          placeholder="Enter an email..."
-          name="Email"
-          value={editFormData.Email}
-          onChange={handleEditFormChange}
-        ></input>
-      </td>
-      <td>
-        <input
           type="text"
           required="required"
-          placeholder="Enter desgination..."
-          name="Designation"
-          value={editFormData.Designation}
-          onChange={handleEditFormChange}
-        ></input>
-      </td>
-      <td>
-        <input
-          type="text"
-          required="required"
-          placeholder="Enter DOB..."
-          name="dob"
-          value={editFormData.dob}
+          placeholder="Enter Phone Number"
+          name="phoneNumber"
+          value={editFormData.phoneNumber}
           onChange={handleEditFormChange}
         ></input>
       </td>
