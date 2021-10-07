@@ -6,7 +6,7 @@ import EditableRow from "./EditableRow"
 import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 const App = () => {
-  const emp= useSelector(state=>state.firestore.ordered.Emp_Details);
+  const emp= useSelector(state=>state.firestore.ordered.Schedule);
   const firestore=useFirestore();
   useFirestoreConnect([
     {
