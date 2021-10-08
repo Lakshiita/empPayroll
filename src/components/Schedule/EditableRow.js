@@ -23,7 +23,7 @@ const EditableRow = ({
           required="required"
           placeholder=""
           name="sid"
-          value={editFormData.Name}
+          value={editFormData.sid}
           onChange={handleEditFormChange}
         ></input>
       </td>
@@ -33,7 +33,7 @@ const EditableRow = ({
           required="required"
           placeholder=""
           name="work_hrs"
-          value={editFormData.Address}
+          value={editFormData.work_hrs}
           onChange={handleEditFormChange}
         ></input>
       </td>
@@ -43,7 +43,7 @@ const EditableRow = ({
           required="required"
           placeholder=""
           name="status"
-          value={editFormData.phoneNumber}
+          value={editFormData.status}
           onChange={handleEditFormChange}
         ></input>
       </td>
@@ -53,7 +53,7 @@ const EditableRow = ({
           required="required"
           placeholder=""
           name="date"
-          value={editFormData.dob}
+          value={editFormData.date}
           onChange={handleEditFormChange}
         ></input>
       </td>

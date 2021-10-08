@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 const App = () => {
   const emp= useSelector(state=>state.firestore.ordered.Leaves);
   const firestore=useFirestore();
+  let knt=0;
   useFirestoreConnect([
     {
       collection:"Leaves",
@@ -89,12 +90,24 @@ const App = () => {
     event.preventDefault();
     setEditContactId(contact.id);
     let id=contact.id;
-    const formValues = {
-        duration: editFormData.duration,
-        from: editFormData.from,
-        status: editFormData.status,
-        UserID: editFormData.UserID
-    };
+    let formValues;
+    if(knt==0){
+      formValues= {
+        duration: contact.duration,
+        from: contact.from,
+        status: contact.status,
+        UserID: contact.UserID
+      };
+      knt=1;
+    }
+    else{
+      formValues = {
+          duration: editFormData.duration,
+          from: editFormData.from,
+          status: editFormData.status,
+          UserID: editFormData.UserID
+      };
+    }
     setEditFormData(formValues);
   };
 

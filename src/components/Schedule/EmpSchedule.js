@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 const App = () => {
   const emp= useSelector(state=>state.firestore.ordered.Schedule);
   const firestore=useFirestore();
+  let knt=0;
   useFirestoreConnect([
     {
       collection:"Schedule",
@@ -93,13 +94,26 @@ const App = () => {
     event.preventDefault();
     setEditContactId(contact.id);
     let id=contact.id;
-    const formValues = {
-        sid: editFormData.sid,
-        work_hrs: editFormData.work_hrs,
-        status: editFormData.status,
-        date: editFormData.date,
-        UserID: editFormData.UserID
-    };
+    let formValues;
+    if(knt==0){
+      formValues= {
+        sid: contact.sid,
+        work_hrs: contact.work_hrs,
+        status: contact.status,
+        date: contact.date,
+        UserID: contact.UserID
+      };
+      knt=1;
+    }
+    else{
+      formValues= {
+          sid: editFormData.sid,
+          work_hrs: editFormData.work_hrs,
+          status: editFormData.status,
+          date: editFormData.date,
+          UserID: editFormData.UserID
+      };
+    }
     setEditFormData(formValues);
   };
 
