@@ -202,7 +202,7 @@ const App = () => {
           onChange={handleAddFormChange}
         />
         <input
-          type="text"
+          type="date"
           name="date"
           required="required"
           placeholder="Enter Date..."

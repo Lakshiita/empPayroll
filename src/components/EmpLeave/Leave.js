@@ -182,18 +182,19 @@ const App = () => {
         />
         <input
           type="text"
-          name="from"
-          required="required"
-          placeholder="Enter from date"
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
           name="status"
           required="required"
           placeholder="Enter Status..."
           onChange={handleAddFormChange}
         />
+        <input
+          type="date"
+          name="from"
+          required="required"
+          placeholder="Enter from date"
+          onChange={handleAddFormChange}
+        />
+        
         <button type="submit">Add</button>
       </form>
     </div>

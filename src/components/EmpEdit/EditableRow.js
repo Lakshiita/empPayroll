@@ -59,7 +59,7 @@ const EditableRow = ({
       </td>
       <td>
         <input
-          type="text"
+          type="date"
           required="required"
           placeholder=""
           name="dob"

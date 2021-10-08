@@ -31,18 +31,18 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter From Date"
-          name="from"
-          value={editFormData.from}
+          placeholder="Enter Status"
+          name="status"
+          value={editFormData.status}
           onChange={handleEditFormChange}
         ></input>
       </td>
       <td>
         <input
-          type="text"
+          type="date"
           required="required"
-          placeholder="Enter status..."
-          name="status"
+          placeholder="Enter From Date"
+          name="from"
           value={editFormData.status}
           onChange={handleEditFormChange}
         ></input>

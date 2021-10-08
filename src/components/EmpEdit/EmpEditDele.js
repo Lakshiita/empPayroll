@@ -223,7 +223,7 @@ const App = () => {
           onChange={handleAddFormChange}
         />
         <input
-          type="text"
+          type="date"
           name="dob"
           required="required"
           placeholder="Enter DOB"
