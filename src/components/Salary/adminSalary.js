@@ -64,7 +64,7 @@ const App = () => {
 
     const editedContact = {
       Designation:editFormData.Designation,
-      UserID:editFormData.salary
+      salary:editFormData.salary
     };
 
     firestore.collection("Salary").doc(editContactId).update(editedContact);
@@ -79,7 +79,7 @@ const App = () => {
     const formValues = {
       
       Designation:editFormData.Designation,
-      UserID:editFormData.salary,
+      salary:editFormData.salary,
     };
     setEditFormData(formValues);
   };

@@ -22,7 +22,7 @@ const EditableRow = ({
           type="text"
           required="required"
           placeholder="Enter Salary..."
-          name="Salary"
+          name="salary"
           value={editFormData.Salary}
           onChange={handleEditFormChange}
         ></input>
