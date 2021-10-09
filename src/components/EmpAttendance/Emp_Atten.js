@@ -132,13 +132,13 @@ const App = () => {
           <tbody>
             {emp.map((contact) => (
               <Fragment>
-                 (
+                 
                   <ReadOnlyRow
                     contact={contact}
                     handleEditClick={handleEditClick}
                     handleDeleteClick={handleDeleteClick}
                   />
-                )
+                
               </Fragment>
             ))}
           </tbody>
