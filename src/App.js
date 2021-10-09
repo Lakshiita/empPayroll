@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import {BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from './components/login1.js';
@@ -15,198 +15,100 @@ import Salary1 from "./components/Salary/adminSalary";
 import EmpSch from "./components/Schedule/EmpSchedule";
 import Leaves1 from "./components/EmpLeave/Leave";
 import EmpEdit from "./components/EmpEdit/EmpEditDele";
-const Home = () => {
-  return (
-    <>
-      <NavbarEmp />
-      <section className="hero-section">
-        <p>Manage all the Employees Here</p>
-        <h1>Welcome Employee </h1>
-      </section>
-    </>
-  );
-};
-const Schedule = () => {
-  return (
-    <>
-      <NavbarEmp />
-      <section className="hero-section">
-     <Emp_OwnSch/>
-      </section>
-    </>
-  );
-};
-const Attendance = () => {
-  return (
-    <>
-      <NavbarEmp />
-      <section className="hero-section">
-      <EmpAtten/>
-      </section>
-    </>
-  );
-};
-const Editprofile = () => {
-  return (
-    <>
-      <NavbarEmp />
-      <section className="hero-section">
-      <Emp_Prof/>
-      </section>
-    </>
-  );
-};
-const Salary = () => {
-  return (
-    <>
-      <NavbarEmp />
-      <section className="hero-section">
-      <EmpSalary/>
-      </section>
-    </>
-  );
-};
-const Logout = () => {
-  return (
-    <>
-      <NavbarEmp />
-      <section className="hero-section">
-        <h1>Logout</h1>
-      </section>
-    </>
-  );
-};
+//import LoginForm from './LoginForm';
+import EmpDashboard from './EmpDash';
+import AdminDashboard from './AdminDash';
 
-const App = () => {
+function LoginForm({ Login, error }) {
+  const [details, setDetails] = useState({ type: "", email: "", password: "" });
+
+  const submitHandler = e => {
+      e.preventDefault();
+
+      Login(details);
+  }
+
   return (
-    <Provider store={store}>
-      <ReactReduxFirebaseProvider {...rrfProps}>
-        <BrowserRouter>
-      <Switch>
+      <form onSubmit={submitHandler}>
+          <div className="form-inner">
+              <h2>Login</h2>
+              {(error !== "") ? (<div className="error">{error}</div>) : ""}
+
+              <div class="select">
+              <select name="type" id="type"
+              value = {details.type} onChange={e => 
+                  setDetails({ ...details, type: e.target.value })}
+              >
+              <option value="Admin">Admin</option>
+              <option value="Employee">Employee</option>
+              </select>
+              </div>
+              <div className="form-group">
+                  <label htmlFor="email">Email: </label>
+                  <input type="email" name="email" id="email" 
+                  onChange={e => setDetails({ ...details, email: e.target.value })} value={details.email} />
+              </div>
+              <div className="form-group">
+                  <label htmlFor="password">Password: </label>
+                  <input type="password" name="password" id="password" 
+                  onChange={e => setDetails({ ...details, password: e.target.value })} value={details.password} />
+              </div>
+              <input type="submit" value="LOGIN" />
+          </div>
+      </form>
+  )
+}
+
+
+const  App = () =>{
+  
+  const adminUser = {
+    email: "admin@admin.com",
+    password: ""
+  }
+
+  const [user, setUser] = useState({ type: "", email: "" });
+  const [error, setError] = useState("");
+
+  const Login = details => {
+    console.log(details);
+
+    if (details.email === adminUser.email && details.password === adminUser.password) {
       
-      <Route exact path="/">
-        <Home />
-      </Route>
-      
-      <Route path="/schedule">
-        <Schedule />
-      </Route>
+      setUser({
+        type: details.type,
+        email: details.email
+      });
+    }
+    else {
+      console.log("Details do not match");
+      setError("Details do not match");
+    }
+  }
 
-      <Route path="/salary">
-        <Salary/>
-      </Route>
+  const Logout = () => {
+    setUser({ type: "", email: "" });
+  }
 
-      <Route path="/editprofile">
-        <Editprofile/>
-      </Route>
-
-      <Route path="/attendance">
-        <Attendance />
-      </Route>
-      <Route path="/logout">
-        <Logout />
-      </Route>
-
-    </Switch>
-    </BrowserRouter>
-      </ReactReduxFirebaseProvider>
-    </Provider>
+  return (
+    <div>
+      {(user.email !== "") ? (
+        /*
+         <div className="welcome">
+          <h2>Welcome , <span></span></h2>
+          <h2>You are , <span>{user.type}</span></h2>
+          <button onClick={Logout}>Logout</button>
+        </div> */
+        <>
+        <EmpDashboard />
+        </>
+      ) : (
+        // <AdminDashboard/>
+        <LoginForm Login={Login} error={error} />
+        
+      )}
+    </div>
   );
-};
-
-//===================================================================================
-//Admin section
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// const Home = () => {
-//   return (
-//     <>
-//       <Navbar />
-//       <section className="hero-section">
-//         <p>Manage all the Employees Here</p>
-//         <h1>Welcome Admin bye </h1>
-//         {/* <Login/> */}
-//       </section>
-//     </>
-//   );
-// };
-
-// const Leaves = () => {
-//   return (
-//     <>
-//       <Navbar />
-//       <section className="hero-section">
-//       <Leaves1 />
-//       </section>
-//     </>
-//   );
-// };
-
-// const Schedule = () => {
-//   return (
-//     <>
-//       <Navbar />
-//       <section className="hero-section">
-//         <EmpSch />
-//       </section>
-//     </>
-//   );
-// };
-
-// const Edit = () => {
-//   return (
-//     <>
-//       <Navbar />
-//       <section className="hero-section">
-//         <EmpEdit />
-//       </section>
-//     </>
-//   );
-// };
-
-// const Salary = () => {
-//   return (
-//     <>
-//       <Navbar />
-//       <section className="hero-section">
-//         <Salary1/>
-//       </section>
-//     </>
-//   );
-// };
-
-// const App = () => {
-//   return (
-//     <Provider store={store}>
-//       <ReactReduxFirebaseProvider {...rrfProps}>
-//         <BrowserRouter>
-//       <Switch>
-      
-//       <Route exact path="/">
-//         <Home />
-//       </Route>
-      
-//       <Route path="/schedule">
-//         <Schedule />
-//       </Route>
-
-//       <Route path="/salary">
-//         <Salary/>
-//       </Route>
-
-//       <Route path="/leave">
-//         <Leaves/>
-//       </Route>
-
-//       <Route path="/edit">
-//         <Edit />
-//       </Route>
-
-//     </Switch>
-//     </BrowserRouter>
-//       </ReactReduxFirebaseProvider>
-//     </Provider>
-//   );
-// };
+}
 
 export default App;
