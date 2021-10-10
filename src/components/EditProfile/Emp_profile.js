@@ -4,6 +4,10 @@ import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow"
 import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
+import { Button, Card } from "react-bootstrap";//added
+import 'bootstrap/dist/css/bootstrap.min.css'; //added
+import { useHistory } from "react-router";
+import Editform1 from "./editform";
 const App = () => {
   const emp= useSelector(state=>state.firestore.ordered.Emp_Details);
   const firestore=useFirestore();
@@ -23,17 +27,18 @@ const App = () => {
     dob:"",
     phoneNumber:""
   });
-
+  const aloo = emp[0]; 
+  
   const [editFormData, setEditFormData] = useState({
     UserID: "",
     Address: "",
     Designation: "",
-    Email:"",
-    Name:"",
-    dob:"",
-    phoneNumber:""
+    Email: "",
+    Name: "",
+    dob: "",
+    phoneNumber: ""
   });
-
+  console.log(emp);
   const [editContactId, setEditContactId] = useState(null);
 
   const handleAddFormChange = (event) => {
@@ -142,49 +147,20 @@ const App = () => {
 
     //setContacts(newContacts);
   };
-  
+  const history = useHistory();
+  const redirect=()=>{
+    history.push('/editform');
+  }
   console.log(emp);
   
   if(!emp)
     return <h1>loading</h1>
   return (
-    <div className="container">
-      <form onSubmit={handleEditFormSubmit}>
-        <table>
-          <thead>
-            <tr>
-              <th>UserId</th>
-              <th>Address</th>
-              <th>Designation</th>
-              <th>Email</th>
-              <th>Name</th>
-              <th>DOB</th>
-              <th>PhoneNumber</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {emp.map((contact) => (
-              <Fragment>
-                {editContactId === contact.id ? (
-                  <EditableRow
-                    editFormData={editFormData}
-                    handleEditFormChange={handleEditFormChange}
-                    handleCancelClick={handleCancelClick}
-                  />
-                ) : (
-                  <ReadOnlyRow
-                    contact={contact}
-                    handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
-                  />
-                )}
-              </Fragment>
-            ))}
-          </tbody>
-        </table>
-      </form>
-
+    <div>
+      
+      
+        <Editform1  EditFormData={editFormData} handleEditFormChange={handleEditFormChange} 
+       />
     </div>
   );
 };

@@ -6,8 +6,7 @@ const EditableRow = ({
   handleCancelClick,
 }) => {
   return (
-    <tr>
-      <td>
+    <div>
       <input
           type="text"
           required="required"
@@ -16,8 +15,7 @@ const EditableRow = ({
           value={editFormData.UserID}
           onChange={handleEditFormChange}
         ></input>
-        </td>
-        <td>
+        
         <input
           type="text"
           required="required"
@@ -26,8 +24,8 @@ const EditableRow = ({
           value={editFormData.Address}
           onChange={handleEditFormChange}
         ></input>
-      </td>
-        <td>
+    
+        
         <input
           type="text"
           required="required"
@@ -36,8 +34,7 @@ const EditableRow = ({
           value={editFormData.Designation}
           onChange={handleEditFormChange}
         ></input>
-      </td>
-      <td>
+      
         <input
           type="text"
           required="required"
@@ -46,8 +43,7 @@ const EditableRow = ({
           value={editFormData.Email}
           onChange={handleEditFormChange}
         ></input>
-      </td>
-      <td>
+   
         <input
           type="text"
           required="required"
@@ -56,8 +52,7 @@ const EditableRow = ({
           value={editFormData.Name}
           onChange={handleEditFormChange}
         ></input>
-      </td>
-      <td>
+     
         <input
           type="date"
           required="required"
@@ -66,8 +61,7 @@ const EditableRow = ({
           value={editFormData.dob}
           onChange={handleEditFormChange}
         ></input>
-      </td>
-      <td>
+     
         <input
           type="text"
           required="required"
@@ -76,14 +70,12 @@ const EditableRow = ({
           value={editFormData.phoneNumber}
           onChange={handleEditFormChange}
         ></input>
-      </td>
-      <td>
+      
         <button type="submit">Save</button>
         <button type="button" onClick={handleCancelClick}>
           Cancel
         </button>
-      </td>
-    </tr>
+     </div>
   );
 };
 
