@@ -115,7 +115,10 @@ const  App = () =>{
   }
 
   return (
-    <div>
+    <Provider store={store}>
+      <ReactReduxFirebaseProvider {...rrfProps}>
+    
+      
       {(k===2) ? (
         /*
          <div className="welcome">
@@ -137,7 +140,9 @@ const  App = () =>{
         )
         
       )}
-    </div>
+    
+      </ReactReduxFirebaseProvider>
+      </Provider>
   );
 }
 
