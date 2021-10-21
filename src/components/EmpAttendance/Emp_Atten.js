@@ -118,6 +118,7 @@ const App = () => {
   
   if(!emp)
     return <h1>loading</h1>
+    var empp=emp.filter(s=>{if(s.UserID==localStorage.getItem("Email")) return s;})
   return (
     <div className="container">
       <form className="form-box" onSubmit={handleEditFormSubmit}>
@@ -130,7 +131,7 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
-            {emp.map((contact) => (
+            {empp.map((contact) => (
               <Fragment>
                  
                   <ReadOnlyRow
