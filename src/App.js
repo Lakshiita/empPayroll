@@ -69,12 +69,19 @@ function LoginForm({ Login, error }) {
 
 const  App = () =>{
   const emp= useSelector(state=>state.firestore.ordered.Credentials);
+  const att= useSelector(state=>state.firestore.ordered.Attendence)
   const firestore=useFirestore();
   useFirestoreConnect([
     {
       collection:"Credentials",
     },
   ]);
+  useFirestoreConnect([
+    {
+      collection:"Attendence",
+    },
+  ]);
+  
   
   const adminUser = {
     email: "admin@admin.com",
@@ -92,6 +99,7 @@ const  App = () =>{
         email: details.email
       })
       var doc=emp;
+      var attnd=att;
       console.log(doc);
       let flag=0;
       doc.forEach(doc1 => {
@@ -104,12 +112,26 @@ const  App = () =>{
           if(doc1.Role==="Admin"){
             k=1;
           }
+          var attf=0;
+          var today=new Date();
+          var date=today.getFullYear()+"-"+(today.getMonth()+1)+"-"+(today.getDate());
           if(doc1.Role==="Employee"){
+            attnd.forEach(e=>{
+              if(e.UserID===doc1.UserID && e.Date===date)
+              {
+                attf=1;
+              }
+            })
             k=2;
+            
           }
           flag=1;
           localStorage.setItem("Email",doc1.UserID);
           console.log(localStorage.getItem("Email"));
+          if(attf==0)
+          {
+            firestore.collection("Attendence").add({"Date":date,"Status":"Present","UserID":localStorage.getItem("Email")});
+          }
         }
 
       });

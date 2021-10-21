@@ -60,8 +60,8 @@ const App = () => {
     const newContact = {
         duration: addFormData.duration,
         from: addFormData.from,
-        status: addFormData.status,
-        UserID: addFormData.UserID
+        status: "pending",
+        UserID: localStorage.getItem("Email")
     };
     firestore.collection("Leaves").add(newContact);
   };
@@ -108,18 +108,17 @@ const App = () => {
   
   if(!emp)
     return <h1>loading</h1>
-    var empp=emp.filter(s=>{if(s.status.toUpperCase()==="PENDING") return s;})
+    var empp=emp.filter(s=>{if(s.UserID===localStorage.getItem("Email")) return s;})
   return (
     <div className="container">
       <form onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
             <tr>
-              <th>UserId</th>
+              
               <th>Duration</th>
               <th>Status</th>
               <th>From</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>

@@ -18,7 +18,7 @@ const App = () => {
     },
   ]);
   
-  if(!emp)
+  if(!emp || !sal)
     return <h3>loading..</h3>
     var designation;
     emp.forEach(element => {
