@@ -15,6 +15,7 @@ import Salary1 from "./components/Salary/adminSalary";
 import EmpSch from "./components/Schedule/EmpSchedule";
 import Leaves1 from "./components/Leaves/Leave";
 import EmpEdit from "./components/EmpEdit/EmpEditDele";
+
 const Home = () => {
   return (
     <>
@@ -67,14 +68,8 @@ const Salary = () => {
   );
 };
 const Logout = () => {
-  return (
-    <>
-      <NavbarEmp />
-      <section className="hero-section">
-        <h1>Logout</h1>
-      </section>
-    </>
-  );
+  // window.location.reload();
+  document.location.href="/";
 };
 const EmpLeaves = () =>{
   return (

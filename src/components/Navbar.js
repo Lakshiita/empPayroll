@@ -52,6 +52,9 @@ const Navbar = () => {
               
               <NavLink to="/edit">Add/Delete</NavLink>
             </li>
+            <li>
+              <NavLink to="/logout">Logout</NavLink>
+            </li>
           </ul>
         </div>
 
