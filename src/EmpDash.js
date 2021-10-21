@@ -103,6 +103,9 @@ const App = () => {
       <Route path="/attendance">
         <Attendance />
       </Route>
+      <Route path="/leave">
+        <Attendance />
+      </Route>
       <Route path="/logout">
         <Logout />
       </Route>
