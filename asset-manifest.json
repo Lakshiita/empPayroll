@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/empPayroll/static/css/main.c6cb7ba7.chunk.css",
+    "main.js": "/empPayroll/static/js/main.ef70cd85.chunk.js",
+    "main.js.map": "/empPayroll/static/js/main.ef70cd85.chunk.js.map",
+    "runtime-main.js": "/empPayroll/static/js/runtime-main.19f56ccd.js",
+    "runtime-main.js.map": "/empPayroll/static/js/runtime-main.19f56ccd.js.map",
+    "static/js/2.3c315048.chunk.js": "/empPayroll/static/js/2.3c315048.chunk.js",
+    "static/js/2.3c315048.chunk.js.map": "/empPayroll/static/js/2.3c315048.chunk.js.map",
+    "static/js/3.9c87bef0.chunk.js": "/empPayroll/static/js/3.9c87bef0.chunk.js",
+    "static/js/3.9c87bef0.chunk.js.map": "/empPayroll/static/js/3.9c87bef0.chunk.js.map",
+    "index.html": "/empPayroll/index.html",
+    "static/css/main.c6cb7ba7.chunk.css.map": "/empPayroll/static/css/main.c6cb7ba7.chunk.css.map",
+    "static/js/2.3c315048.chunk.js.LICENSE.txt": "/empPayroll/static/js/2.3c315048.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.19f56ccd.js",
+    "static/js/2.3c315048.chunk.js",
+    "static/css/main.c6cb7ba7.chunk.css",
+    "static/js/main.ef70cd85.chunk.js"
+  ]
+}
