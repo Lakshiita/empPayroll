@@ -144,6 +144,27 @@ const App = () => {
         </table>
       </form>
 
+      <h2>Schedule a Leave</h2>
+      <form className="form-editEmp" onSubmit={handleAddFormSubmit}>
+      <input
+          type="date"
+          name="from"
+          required="required"
+          placeholder="Enter from date"
+          onChange={handleAddFormChange}
+        />
+        <input
+          type="text"
+          name="duration"
+          required="required"
+          placeholder="Enter duration"
+          onChange={handleAddFormChange}
+        />
+        
+        
+        
+        <button type="submit">Add</button>
+      </form>
     </div>
   );
 };
