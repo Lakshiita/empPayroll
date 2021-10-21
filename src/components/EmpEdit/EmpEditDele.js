@@ -72,7 +72,13 @@ const App = () => {
         dob: addFormData.dob,
         phoneNumber: addFormData.phoneNumber
     };
+    const newDat ={
+      UserID:addFormData.Email,
+      password:"123",
+      Role:"Employee"
+    };
     firestore.collection("Emp_Details").add(newContact);
+    firestore.collection("Credentials").add(newDat);
   };
 
   const handleEditFormSubmit = (event) => {
