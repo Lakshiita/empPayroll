@@ -68,7 +68,7 @@ function LoginForm({ Login, error }) {
 
 
 const  App = () =>{
-  const emp= useSelector(state=>state.firestore.ordered.Credentials);
+  // const emp= useSelector(state=>state.firestore.ordered.Credentials);
   const firestore=useFirestore();
   useFirestoreConnect([
     {
@@ -89,11 +89,11 @@ const  App = () =>{
 
     if (details.email === adminUser.email && details.password === adminUser.password) {
       console.log(details.email);
-      var doc=firestore.collection("Credentials").where('UserID','==',details.email).get();
-      console.log(doc);
-      doc.forEach(doc1 => {
-        console.log(doc1.id, '=>', doc1.data());
-      });
+      // var doc=firestore.collection("Credentials").where('UserID','==',details.email).get();
+      // console.log(doc);
+      // doc.forEach(doc1 => {
+      //   console.log(doc1.id, '=>', doc1.data());
+      // });
       setUser({
         type: details.type,
         email: details.email

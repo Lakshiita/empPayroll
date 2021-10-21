@@ -1,3 +1,4 @@
+import { color } from "@mui/system";
 import React from "react";
 import "../empTAB.css";
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
@@ -12,11 +13,12 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
         <button
           type="button"
           onClick={(event) => handleEditClick(event, contact)}
+          style={{backgroundColor:"green"}}
         >
-          Edit
+          Accept
         </button>
-        <button type="button" onClick={() => handleDeleteClick(contact.id)}>
-          Delete
+        <button type="button" onClick={() => handleDeleteClick(contact.id)} style={{backgroundColor:"red"}}>
+          Ignore
         </button>
       </td>
     </tr>
