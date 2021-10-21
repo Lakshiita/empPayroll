@@ -4,13 +4,13 @@
     margin: 10rem auto;
     width: 35%;
     padding: 2rem;
-    border: 1px solid #aaaa;
-    box-shadow: 10px 10px 5px #aaaaaa;
-    background-color:cornsilk;
+    border: 1px solid rgba(25, 119, 122, 0.667);
+    box-shadow: 10px 10px 5px #063d34;
+    background-color:rgb(205, 253, 249);
 }
 .error{
     text-align: center;
-    color: red;
+    color: rgb(0, 183, 255);
     font-size: 20px;
 }
 input[type=text],input[type=email],input[type=password],select{
@@ -24,14 +24,14 @@ input[type=submit],label,h2{
 }
 input[type=submit]{
     padding: 12px 20px;
-    background-color: green;
-    color: whitesmoke;
+    background-color: rgba(5, 46, 49, 0.884);
+    color: rgb(207, 240, 238);
     border-radius: 10px;
     
 }
 input[type=submit]:hover{
-    background-color: white;
-    color: BLACK;
+    background-color: rgb(35, 167, 172);
+    color: rgb(12, 74, 85);
     cursor: pointer;
 }
 label,h2{

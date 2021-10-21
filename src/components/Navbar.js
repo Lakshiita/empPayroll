@@ -9,10 +9,19 @@ const Navbar = () => {
     <>
       <nav className="main-nav">
         {/* 1st logo part  */}
-        <div className="logo">
-          <h2>
-            <span>E</span>mployee
-            <span>P</span>ayroll
+        <div  style={{ display: "grid",
+        /* background-color: #3b5998; */
+        gridColumn: "2/3",
+        justifyContent: "start",
+        alignItems: "center"}}>
+          <h2 style={{
+          fontSize: "2.5rem",
+          fontWeight: "400", 
+          textTransform: "uppercase",
+          fontFamily:"sans-serif",
+          color:"rgb(8, 168, 155))"}}>
+            <span style={{fontSize: "3.5rem"}}>E</span>mployee
+            <span style={{fontSize: "3.5rem"}}>P</span>ayroll
           </h2>
         </div>
 
