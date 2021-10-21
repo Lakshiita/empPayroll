@@ -16,6 +16,7 @@ import EmpSch from "./components/Schedule/EmpSchedule";
 import Leaves1 from "./components/EmpLeave/Leave";
 import EmpEdit from "./components/EmpEdit/EmpEditDele";
 //import LoginForm from './LoginForm';
+import './login.css';
 import EmpDashboard from './EmpDash';
 import AdminDashboard from './AdminDash';
 var k=0;
@@ -30,6 +31,7 @@ function LoginForm({ Login, error }) {
   }
 
   return (
+    <div class="login">
       <form onSubmit={submitHandler}>
           <div className="form-inner">
               <h2>Login</h2>
@@ -57,6 +59,7 @@ function LoginForm({ Login, error }) {
               <input type="submit" value="LOGIN" />
           </div>
       </form>
+      </div>
   )
 }
 

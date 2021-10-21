@@ -1,0 +1,34 @@
+.login{
+    margin: 10rem auto;
+    width: 35%;
+    padding: 2rem;
+    border: 1px solid #aaaa;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    background-color:cornsilk;
+}
+
+input[type=text],input[type=email],input[type=password],select{
+    width: 100%;
+    margin: 1.5rem;
+    padding: 12px 20px;
+}
+input[type=submit],label,h2{
+    width: 50%;
+    margin: 1.5rem;
+}
+input[type=submit]{
+    padding: 12px 20px;
+    background-color: green;
+    color: whitesmoke;
+    border-radius: 10px;
+    
+}
+input[type=submit]:hover{
+    background-color: white;
+    color: BLACK;
+    cursor: pointer;
+}
+label,h2{
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
