@@ -18,10 +18,13 @@ import EmpEdit from "./components/EmpEdit/EmpEditDele";
 //import LoginForm from './LoginForm';
 import './login.css';
 import EmpDashboard from './EmpDash';
+import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
+import { useSelector } from "react-redux";
 import AdminDashboard from './AdminDash';
 var k=0;
 
 function LoginForm({ Login, error }) {
+  
   const [details, setDetails] = useState({ type: "Admin", email: "", password: "" });
 
   const submitHandler = e => {
@@ -65,6 +68,13 @@ function LoginForm({ Login, error }) {
 
 
 const  App = () =>{
+  const emp= useSelector(state=>state.firestore.ordered.Credentials);
+  const firestore=useFirestore();
+  useFirestoreConnect([
+    {
+      collection:"Credentials",
+    },
+  ]);
   
   const adminUser = {
     email: "admin@admin.com",
@@ -75,10 +85,15 @@ const  App = () =>{
   const [error, setError] = useState("");
 
   const Login = details => {
-    console.log(details);
+    //console.log(details);
 
     if (details.email === adminUser.email && details.password === adminUser.password) {
-      
+      console.log(details.email);
+      var doc=firestore.collection("Credentials").where('UserID','==',details.email).get();
+      console.log(doc);
+      doc.forEach(doc1 => {
+        console.log(doc1.id, '=>', doc1.data());
+      });
       setUser({
         type: details.type,
         email: details.email
@@ -89,6 +104,8 @@ const  App = () =>{
       if(details.type==="Employee"){
         k=2;
       }
+      localStorage.setItem("Email",details.email);
+      
     }
     else {
       console.log("Details do not match");
@@ -101,7 +118,10 @@ const  App = () =>{
   }
 
   return (
-    <div>
+    <Provider store={store}>
+      <ReactReduxFirebaseProvider {...rrfProps}>
+    
+      
       {(k===2) ? (
         /*
          <div className="welcome">
@@ -123,7 +143,9 @@ const  App = () =>{
         )
         
       )}
-    </div>
+    
+      </ReactReduxFirebaseProvider>
+      </Provider>
   );
 }
 
