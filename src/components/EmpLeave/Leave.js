@@ -91,23 +91,7 @@ const App = () => {
     setEditContactId(contact.id);
     let id=contact.id;
     let formValues;
-    if(knt==0){
-      formValues= {
-        duration: contact.duration,
-        from: contact.from,
-        status: contact.status,
-        UserID: contact.UserID
-      };
-      knt=1;
-    }
-    else{
-      formValues = {
-          duration: editFormData.duration,
-          from: editFormData.from,
-          status: editFormData.status,
-          UserID: editFormData.UserID
-      };
-    }
+    const docref=firestore.collection("Leaves").doc(id).update({"status":"APPROVED"});
     setEditFormData(formValues);
   };
 
@@ -117,18 +101,14 @@ const App = () => {
 
   const handleDeleteClick = (contactId) => {
     //const newContacts = [...contacts];
-    const docref=firestore.collection("Leaves").doc(contactId).delete();
-   // const index = contacts.findIndex((contact) => contact.id === contactId);
-
-    //newContacts.splice(index, 1);
-
-    //setContacts(newContacts);
+    const docref=firestore.collection("Leaves").doc(contactId).update({"status":"REJECTED"});
   };
   
   console.log(emp);
   
   if(!emp)
     return <h1>loading</h1>
+    var empp=emp.filter(s=>{if(s.status==="pending") return s;})
   return (
     <div className="container">
       <form onSubmit={handleEditFormSubmit}>
@@ -143,14 +123,14 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
-            {emp.map((contact) => (
+            {empp.map((contact) => (
               <Fragment>
                 {editContactId === contact.id ? (
-                  <EditableRow
-                    editFormData={editFormData}
-                    handleEditFormChange={handleEditFormChange}
-                    handleCancelClick={handleCancelClick}
-                  />
+                  <ReadOnlyRow
+                  contact={contact}
+                  handleEditClick={handleEditClick}
+                  handleDeleteClick={handleDeleteClick}
+                />
                 ) : (
                   <ReadOnlyRow
                     contact={contact}
