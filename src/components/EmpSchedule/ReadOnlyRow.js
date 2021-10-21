@@ -3,7 +3,6 @@ import "./empTAB.css";
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
   return (
     <tr>
-      <td>{contact.UserID}</td>
       <td>{contact.sid}</td>
       <td>{contact.work_hrs}</td>
       <td>{contact.status}</td>

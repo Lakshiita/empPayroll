@@ -108,7 +108,7 @@ const App = () => {
   
   if(!emp)
     return <h1>loading</h1>
-    var empp=emp.filter(s=>{if(s.status==="pending") return s;})
+    var empp=emp.filter(s=>{if(s.status.toUpperCase()==="PENDING") return s;})
   return (
     <div className="container">
       <form onSubmit={handleEditFormSubmit}>

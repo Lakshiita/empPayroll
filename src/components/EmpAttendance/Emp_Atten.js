@@ -127,7 +127,6 @@ const App = () => {
             <tr>
               <th>Date</th>
               <th>Status</th>
-              <th>UserId</th>
             </tr>
           </thead>
           <tbody>

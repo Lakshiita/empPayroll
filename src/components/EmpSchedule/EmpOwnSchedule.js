@@ -145,7 +145,6 @@ const App = () => {
         <table>
           <thead>
             <tr>
-              <th>UserId</th>
               <th>SID</th>
               <th>Work Hours</th>
               <th>Status</th>
