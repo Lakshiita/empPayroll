@@ -159,11 +159,16 @@ const App = () => {
   
   if(!emp)
     return <h1>loading</h1>
+    var UserID=localStorage.getItem("Email");
+    var user;
+    emp.forEach(doc=>{
+      if(doc.UserID==UserID)
+        user=doc;
+    })
+    console.log(user);
   return (
     <div>
-      
-      
-        <Editform1  EditFormData={emp[0]} handleEditFormChange={handleEditFormChange} 
+        <Editform1  EditFormData={user} handleEditFormChange={handleEditFormChange} 
        />
     </div>
   );
