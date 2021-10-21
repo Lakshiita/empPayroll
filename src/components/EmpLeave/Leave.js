@@ -146,13 +146,16 @@ const App = () => {
 
       <h2>Schedule a Leave</h2>
       <form className="form-editEmp" onSubmit={handleAddFormSubmit}>
-      <input
-          type="text"
-          name="UserID"
+      
+        <input
+          type="date"
           required="required"
-          placeholder="Enter UserID..."
-          onChange={handleAddFormChange}
-        />
+          placeholder="Enter From Date"
+          name="from"
+          value={editFormData.from}
+          onChange={handleEditFormChange}
+        ></input>
+      
         <input
           type="text"
           name="duration"
@@ -160,22 +163,9 @@ const App = () => {
           placeholder="Enter duration"
           onChange={handleAddFormChange}
         />
-        <input
-          type="text"
-          name="status"
-          required="required"
-          placeholder="Enter Status..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="date"
-          name="from"
-          required="required"
-          placeholder="Enter from date"
-          onChange={handleAddFormChange}
-        />
         
-        <button type="submit">Add</button>
+        
+        <button type="submit">Apply</button>
       </form>
     </div>
   );

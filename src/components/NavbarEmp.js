@@ -9,7 +9,12 @@ const Navbar = () => {
     <>
       <nav className="main-nav">
         {/* 1st logo part  */}
-        <div className="logo">
+        <div  style={{ display: "grid",
+  /* background-color: #3b5998; */
+  gridColumn: "2/3",
+  justifyContent: "start",
+  alignItems: "center",
+  fontSize: "4rem"}}>
           <h2>
             <span>E</span>mployee
             <span>P</span>ayroll
@@ -23,19 +28,19 @@ const Navbar = () => {
           }>
           <ul>
             <li>
-              <NavLink to="/">Emp Home</NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
               <NavLink to="/schedule">Schedule</NavLink>
             </li>
             <li>
-              <NavLink to="/leave">Attendance</NavLink>
+              <NavLink to="/leave">Leave</NavLink>
             </li>
             <li>
               <NavLink to="/attendance">Attendance</NavLink>
             </li>
             <li>
-              <NavLink to="/editprofile">Your Profile</NavLink>
+              <NavLink to="/editprofile">Profile</NavLink>
             </li>
             <li>
               <NavLink to="/salary">Salary</NavLink>

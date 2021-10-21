@@ -76,7 +76,16 @@ const Logout = () => {
     </>
   );
 };
-
+const EmpLeaves = () =>{
+  return (
+    <>
+      <NavbarEmp />
+      <section className="hero-section">
+        <Leaves1/>
+      </section>
+    </>
+  );
+};
 const App = () => {
   return (
     <Provider store={store}>
@@ -100,12 +109,14 @@ const App = () => {
         <Editprofile/>
       </Route>
 
+      <Route path="/leave">
+        <EmpLeaves />
+      </Route>
+
       <Route path="/attendance">
         <Attendance />
       </Route>
-      <Route path="/leave">
-        <Attendance />
-      </Route>
+      
       <Route path="/logout">
         <Logout />
       </Route>

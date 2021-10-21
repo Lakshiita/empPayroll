@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import "../empTAB.css";
+// import "../empTAB.css";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow"
 import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
