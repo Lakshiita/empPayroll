@@ -4,6 +4,7 @@ import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow"
 import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
+import { EmojiPeopleRounded } from "@mui/icons-material";
 const App = () => {
   const emp= useSelector(state=>state.firestore.ordered.Schedule);
   const firestore=useFirestore();
@@ -137,6 +138,7 @@ const App = () => {
   
   if(!emp)
     return <h1>loading</h1>
+    var empp=emp.filter(s=>{if(s.UserID==localStorage.getItem("Email")) return s;})
   return (
     <div className="container">
       <form className="form-box" onSubmit={handleEditFormSubmit}>
@@ -151,7 +153,7 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
-            {emp.map((contact) => (
+            {empp.map((contact) => (
               <Fragment>
                 {editContactId === contact.id ? (
                   <EditableRow
