@@ -18,9 +18,10 @@ import EmpEdit from "./components/EmpEdit/EmpEditDele";
 //import LoginForm from './LoginForm';
 import EmpDashboard from './EmpDash';
 import AdminDashboard from './AdminDash';
+var k=0;
 
 function LoginForm({ Login, error }) {
-  const [details, setDetails] = useState({ type: "", email: "", password: "" });
+  const [details, setDetails] = useState({ type: "Admin", email: "", password: "" });
 
   const submitHandler = e => {
       e.preventDefault();
@@ -79,6 +80,12 @@ const  App = () =>{
         type: details.type,
         email: details.email
       });
+      if(details.type==="Admin"){
+        k=1;
+      }
+      if(details.type==="Employee"){
+        k=2;
+      }
     }
     else {
       console.log("Details do not match");
@@ -92,7 +99,7 @@ const  App = () =>{
 
   return (
     <div>
-      {(user.email !== "") ? (
+      {(k===2) ? (
         /*
          <div className="welcome">
           <h2>Welcome , <span></span></h2>
@@ -104,7 +111,13 @@ const  App = () =>{
         </>
       ) : (
         // <AdminDashboard/>
-        <LoginForm Login={Login} error={error} />
+        (k===0)?(
+        <LoginForm Login={Login} error={error} />):
+        (
+          <>
+          <AdminDashboard/>
+          </>
+        )
         
       )}
     </div>

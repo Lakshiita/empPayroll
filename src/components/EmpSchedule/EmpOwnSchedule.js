@@ -8,11 +8,13 @@ const App = () => {
   const emp= useSelector(state=>state.firestore.ordered.Schedule);
   const firestore=useFirestore();
   let knt=0;
+  
   useFirestoreConnect([
     {
       collection:"Schedule",
     },
   ]);
+  console.log(emp);
   const [contacts, setContacts] = useState(emp);
   const [addFormData, setAddFormData] = useState({
     sid: "",

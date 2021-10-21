@@ -4,19 +4,21 @@ import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow"
 import { useFirestoreConnect,useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
-import { Button, Card } from "react-bootstrap";//added
-import 'bootstrap/dist/css/bootstrap.min.css'; //added
+//import { Button, Card } from "react-bootstrap";//added
+//import 'bootstrap/dist/css/bootstrap.min.css'; //added
 import { useHistory } from "react-router";
 import Editform1 from "./editform";
 const App = () => {
+  
   const emp= useSelector(state=>state.firestore.ordered.Emp_Details);
   const firestore=useFirestore();
-  let knt=0;
   useFirestoreConnect([
     {
       collection:"Emp_Details",
     },
   ]);
+  let knt=0;
+  
   const [contacts, setContacts] = useState(emp);
   const [addFormData, setAddFormData] = useState({
     UserID: "",
@@ -27,7 +29,9 @@ const App = () => {
     dob:"",
     phoneNumber:""
   });
-  const aloo = emp[0]; 
+  console.log(emp);
+  //const aloo = emp[0]; 
+  
   
   const [editFormData, setEditFormData] = useState({
     UserID: "",
@@ -159,7 +163,7 @@ const App = () => {
     <div>
       
       
-        <Editform1  EditFormData={editFormData} handleEditFormChange={handleEditFormChange} 
+        <Editform1  EditFormData={emp[0]} handleEditFormChange={handleEditFormChange} 
        />
     </div>
   );
