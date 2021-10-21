@@ -68,7 +68,7 @@ function LoginForm({ Login, error }) {
 
 
 const  App = () =>{
-  // const emp= useSelector(state=>state.firestore.ordered.Credentials);
+  const emp= useSelector(state=>state.firestore.ordered.Credentials);
   const firestore=useFirestore();
   useFirestoreConnect([
     {
@@ -87,30 +87,41 @@ const  App = () =>{
   const Login = details => {
     //console.log(details);
 
-    if (details.email === adminUser.email && details.password === adminUser.password) {
-      console.log(details.email);
-      // var doc=firestore.collection("Credentials").where('UserID','==',details.email).get();
-      // console.log(doc);
-      // doc.forEach(doc1 => {
-      //   console.log(doc1.id, '=>', doc1.data());
-      // });
       setUser({
         type: details.type,
         email: details.email
+      })
+      var doc=emp;
+      console.log(doc);
+      let flag=0;
+      doc.forEach(doc1 => {
+        if(doc1.UserID===details.email && doc1.password===details.password)
+        {
+          setUser({
+            type: details.type,
+            email: details.email
+          });
+          if(doc1.Role==="Admin"){
+            k=1;
+          }
+          if(doc1.Role==="Employee"){
+            k=2;
+          }
+          flag=1;
+          localStorage.setItem("Email",doc1.UserID);
+          console.log(localStorage.getItem("Email"));
+        }
+
       });
-      if(details.type==="Admin"){
-        k=1;
+      if(flag==0)
+       { 
+        k=0;
+        console.log("Details do not match");
+        setError("Details do not match");
       }
-      if(details.type==="Employee"){
-        k=2;
-      }
-      localStorage.setItem("Email",details.email);
       
-    }
-    else {
-      console.log("Details do not match");
-      setError("Details do not match");
-    }
+      
+    
   }
 
   const Logout = () => {
@@ -120,8 +131,6 @@ const  App = () =>{
   return (
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-    
-      
       {(k===2) ? (
         /*
          <div className="welcome">
@@ -143,7 +152,6 @@ const  App = () =>{
         )
         
       )}
-    
       </ReactReduxFirebaseProvider>
       </Provider>
   );
