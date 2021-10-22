@@ -1,9 +1,10 @@
 import React from "react";
+// import "./profile.css";
 
 const form = ({EditFormData,handleEditFormChange,handleEditFormSubmit}) =>{
     
     return(
-        <div>
+        <div class="form">
         <form >
         <table>
         <tr>
@@ -43,7 +44,8 @@ const form = ({EditFormData,handleEditFormChange,handleEditFormSubmit}) =>{
             <td><input type="button" value="Edit"  /></td>
             </tr>
             </table>
-        </form></div>
+        </form>
+        </div>
     );
 }
 

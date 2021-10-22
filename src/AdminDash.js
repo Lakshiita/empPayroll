@@ -26,7 +26,7 @@ const Home = () => {
       <Navbar />
       <section className="hero-section">
         <p>Manage all the Employees Here</p>
-        <h1>Welcome Admin bye </h1>
+        <h1>Welcome Admin</h1>
         {/* <Login/> */}
       </section>
     </>
